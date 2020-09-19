@@ -1,6 +1,6 @@
-[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/conrad784/mediathekview-webinterface.svg)](https://hub.docker.com/r/conrad784/mediathekview-webinterface)
-[![GitHub-Issues](https://img.shields.io/github/issues/conrad784/docker-mediathekview-webinterface)](https://github.com/conrad784/docker-mediathekview-webinterface/issues)
-[![GitHub-Releases](https://img.shields.io/github/tag/conrad784/docker-mediathekview-webinterface.svg)](https://github.com/conrad784/docker-mediathekview-webinterface/releases)
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/bate/mediathekview-webinterface.svg)](https://hub.docker.com/r/bate/mediathekview-webinterface)
+[![GitHub-Issues](https://img.shields.io/github/issues/bate/docker-mediathekview-webinterface)](https://github.com/bate/docker-mediathekview-webinterface/issues)
+[![GitHub-Releases](https://img.shields.io/github/tag/bate/docker-mediathekview-webinterface.svg)](https://github.com/bate/docker-mediathekview-webinterface/releases)
 
 # docker-mediathekview
 X11rdp Version of Mediathekview
@@ -19,11 +19,11 @@ The X11rdp feature is inherited from [https://github.com/jlesage/docker-baseimag
 The Github repository is automatically build by Docker Hub.
 You can pull it from Docker Hub:
 ```
-docker pull conrad784/mediathekview-webinterface:latest
+docker pull bate/mediathekview-webinterface:latest
 ```
 Some older versions can also be acquired by using e.g.
 ```
-docker pull conrad784/mediathekview-webinterface:13.3.0-3
+docker pull bate/mediathekview-webinterface:13.3.0-3
 ```
 
 ## Running it
@@ -33,7 +33,7 @@ For basic usage, just use
 docker run -it -p 127.0.0.1:5800:5800 --rm \
     -v $HOME/.mediathek3:/config:rw \
     -v <path to your media files>:/output:rw \
-    conrad784/mediathekview-webinterface:latest
+    bate/mediathekview-webinterface:latest
 ```
 
 ## Developing

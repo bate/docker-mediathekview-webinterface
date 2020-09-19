@@ -3,7 +3,7 @@ FROM jlesage/baseimage-gui:debian-9
 
 ENV USER_ID=0 GROUP_ID=0 TERM=xterm
 
-ENV MEDIATHEK_VERSION=13.5.1
+ENV MEDIATHEK_VERSION=13.6.0
 
 # Define working directory.
 WORKDIR /tmp
@@ -68,5 +68,5 @@ LABEL \
       org.label-schema.name="mediathekview" \
       org.label-schema.description="Docker container for Mediathekview" \
       org.label-schema.version="unknown" \
-      org.label-schema.vcs-url="https://github.com/conrad784/docker-mediathekview-webinterface" \
+      org.label-schema.vcs-url="https://github.com/bate/docker-mediathekview-webinterface" \
       org.label-schema.schema-version="1.0"
