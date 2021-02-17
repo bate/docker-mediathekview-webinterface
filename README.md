@@ -45,3 +45,10 @@ Run the container with some testing environment:
 
 attach to running container and debug:
 `docker exec -it mymedia bash`
+
+tag and release
+`docker build -t bate/mediathekview-webinterface:13.7.1 -t bate/mediathekview-webinterface:latest .`
+`docker push bate/mediathekview-webinterface`
+`docker push bate/mediathekview-webinterface:13.7.1`
+
+
