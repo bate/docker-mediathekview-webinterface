@@ -23,7 +23,7 @@ docker pull bate/mediathekview-webinterface:latest
 ```
 Some older versions can also be acquired by using e.g.
 ```
-docker pull bate/mediathekview-webinterface:13.3.0-3
+docker pull bate/mediathekview-webinterface:13.8.0
 ```
 
 ## Running it
