@@ -1,43 +1,45 @@
 # Pull base image.
-FROM jlesage/baseimage-gui:debian-9
+FROM jlesage/baseimage-gui:debian-11
 
 ENV USER_ID=0 GROUP_ID=0 TERM=xterm
 
-ENV MEDIATHEK_VERSION=13.9.1
+ARG MEDIATHEK_VERSION=13.9.1
 
 # Define working directory.
 WORKDIR /tmp
 
 # Install dependencies.
-RUN apt-get update
-RUN apt-get upgrade -y
-# Build deps
-RUN apt-get install -y apt-utils locales
+# Run deps
+RUN \
+    apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install -y \
+        apt-utils \
+        locales \
+        wget \
+        ffmpeg \
+        vlc \
+	    flvstreamer \
+    && apt-get clean
+
 RUN echo en_US.UTF-8 UTF-8 > /etc/locale.gen
 RUN locale-gen
-
 ENV LC_ALL en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 ENV LANG en_US.UTF-8
-# Run deps
-RUN \
-    apt-get install -y \
-        wget \
-        vlc \
-	flvstreamer
 
 
 # Define software download URLs.
 ARG MEDIATHEKVIEW_URL=https://download.mediathekview.de/stabil/MediathekView-$MEDIATHEK_VERSION-linux.tar.gz
-ARG FFMPEG_URL=https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
-ARG FFMPEG_VERSION=4.2.2
+#ARG FFMPEG_URL=https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
+#ARG FFMPEG_VERSION=4.2.2
 
 # install ffmpeg
-RUN mkdir -p /opt/ffmpeg
-RUN wget -q ${FFMPEG_URL} -O ffmpeg.tar.xz
-RUN tar xf ffmpeg.tar.xz -C /opt/ffmpeg
+#RUN mkdir -p /opt/ffmpeg
+#RUN wget -q ${FFMPEG_URL} -O ffmpeg.tar.xz
+#RUN tar xf ffmpeg.tar.xz -C /opt/ffmpeg
 # Mediathekview only searches in /usr/bin for binaries like ffmpeg and vlc...
-RUN ln -s /opt/ffmpeg/ffmpeg-${FFMPEG_VERSION}-amd64-static/ffmpeg /usr/bin/
+#RUN ln -s /opt/ffmpeg/ffmpeg-${FFMPEG_VERSION}-amd64-static/ffmpeg /usr/bin/
 RUN ln -s /opt/ffmpeg/ffmpeg-${FFMPEG_VERSION}-amd64-static/ffprobe /usr/bin/
 
 # download Mediathekview

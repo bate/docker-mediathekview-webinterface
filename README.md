@@ -47,8 +47,8 @@ attach to running container and debug:
 `docker exec -it mymedia bash`
 
 tag and release
-`docker build -t bate/mediathekview-webinterface:13.9.1 -t bate/mediathekview-webinterface:latest .`
-`docker push bate/mediathekview-webinterface`
-`docker push bate/mediathekview-webinterface:13.9.1`
+`docker buildx bake --push`
+or pass new version
+`MEDIATHEK_VERSION=14.0.0 docker buildx bake --push`
 
 
