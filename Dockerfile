@@ -3,7 +3,7 @@ FROM jlesage/baseimage-gui:debian-11-v4
 
 ENV USER_ID=0 GROUP_ID=0 TERM=xterm
 
-ARG MEDIATHEK_VERSION=13.9.1
+ARG MEDIATHEK_VERSION=14.2.0
 
 # Define working directory.
 WORKDIR /tmp
@@ -20,6 +20,7 @@ RUN \
         ffmpeg \
         vlc \
 	    flvstreamer \
+    && apt-get remove samba \
     && apt-get clean
 
 RUN echo en_US.UTF-8 UTF-8 > /etc/locale.gen
@@ -48,9 +49,9 @@ RUN wget -q ${MEDIATHEKVIEW_URL} -O MediathekView.tar.gz
 RUN tar xf MediathekView.tar.gz -C /opt
 
 # Maximize only the main/initial window.
-RUN \
-    sed-patch 's/<application type="normal">/<application type="normal" title="Mediathekview">/' \
-        /etc/xdg/openbox/rc.xml
+#RUN \
+#    sed-patch 's/<application type="normal">/<application type="normal" title="Mediathekview">/' \
+#        /etc/xdg/openbox/rc.xml
 
 COPY src/startapp.sh /startapp.sh
 

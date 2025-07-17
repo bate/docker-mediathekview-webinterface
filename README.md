@@ -23,7 +23,7 @@ docker pull bate/mediathekview-webinterface:latest
 ```
 Some older versions can also be acquired by using e.g.
 ```
-docker pull bate/mediathekview-webinterface:13.9.1
+docker pull bate/mediathekview-webinterface:14.2.0
 ```
 
 ## Running it
@@ -49,6 +49,6 @@ attach to running container and debug:
 tag and release
 `docker buildx bake --push`
 or pass new version
-`MEDIATHEK_VERSION=14.0.0 docker buildx bake --push`
+`MEDIATHEK_VERSION=14.2.0 docker buildx bake --push`
 
 
